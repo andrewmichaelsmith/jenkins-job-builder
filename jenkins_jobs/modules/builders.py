@@ -1931,17 +1931,20 @@ def docker_build_publish(parse, xml_parent, data):
     Requires the Jenkins :jenkins-wiki`Docker build publish Plugin
     <Docker+build+publish+Plugin>`.
 
-    :arg str repo-name: Name of repository to push to
-    :arg str repo-tag: Tag for image (default '')
-    :arg bool no-cache: If build should be cached (default false)
+    :arg str repo-name: Name of repository to push to.
+    :arg str repo-tag: Tag for image. (default '')
+    :arg bool no-cache: If build should be cached. (default false)
     :arg bool no-force-pull: Don't update the source image before building when
-    it exists locally (default false)
-    :arg bool skip-build: Do not build the image (default false)
-    :arg bool skip-decorate: Do not decorate the build name (default false)
-    :arg bool skip-tag-latest: Do not tag this build as latest (default false)
-    :arg bool skip-push: Do not push (default false)
-    :arg str file-path: Project root of Dockerfile (default '')
+        it exists locally. (default false)
+    :arg bool skip-build: Do not build the image. (default false)
+    :arg bool skip-decorate: Do not decorate the build name. (default false)
+    :arg bool skip-tag-latest: Do not tag this build as latest. (default false)
+    :arg bool skip-push: Do not push. (default false)
+    :arg str file-path: Project root of Dockerfile. (default '')
 
+    Example:
+
+    .. literalinclude:: /../../tests/builders/fixtures/docker-builder001.yaml
     """
     db = XML.SubElement(xml_parent,
                         'com.cloudbees.dockerpublish.DockerBuilder')
