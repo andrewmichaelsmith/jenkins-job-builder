@@ -1950,7 +1950,11 @@ def docker_build_publish(parse, xml_parent, data):
                         'com.cloudbees.dockerpublish.DockerBuilder')
     db.set('plugin', 'docker-build-publish')
 
-    XML.SubElement(db, 'repoName').text = str(data['repo-name'])
+    try:
+        XML.SubElement(db, 'repoName').text = str(data['repo-name'])
+    except KeyError:
+        raise MissingAttributeError('repo-name')
+
     XML.SubElement(db, 'repoTag').text = str(data.get('repo-tag', ''))
     XML.SubElement(db, 'noCache').text = str(
         data.get('no-cache', False)).lower()
